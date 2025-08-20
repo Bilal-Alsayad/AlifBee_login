@@ -37,8 +37,6 @@ export default function Login() {
     );
     const data = await res.json();
 
-    console.log(data);
-
     if (!data.success) {
       alert("Email or Password is wrong");
     }
