@@ -13,7 +13,7 @@ import { useNavigate } from "react-router";
 export default function Login() {
   const [email, setMail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const isFormValid: boolean = password.length < 8 || password.length < 1;
+  const isFormValid: boolean = password.length < 6 || password.length < 1;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,6 +36,12 @@ export default function Login() {
       }
     );
     const data = await res.json();
+
+    console.log(data);
+
+    if (!data.success) {
+      alert("Email or Password is wrong");
+    }
 
     localStorage.setItem("user", JSON.stringify(data.body));
 

@@ -42,8 +42,6 @@ export default function LessonsPage() {
 
         const data = await res.json();
 
-        console.log(data.body);
-
         dispatch(setLevel(data.body.levels));
 
         dispatch(setLesson(data.body.lessons));
@@ -62,8 +60,6 @@ export default function LessonsPage() {
     [levels]
   );
 
-  console.log(levels);
-  console.log(lessons);
   if (!lessons || lessons.length === 0) {
     return <div>Loading...</div>; // Or you can return null to show nothing
   }
